@@ -1,11 +1,16 @@
+import data from "./data.json";
+
 import "./App.css";
 
-function App() {
+import Layout from "./components/Layout/Layout";
+import List from "./components/List/List";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">Welcome</header>
-    </div>
+    <Layout>
+      <List results={data} />
+    </Layout>
   );
-}
+};
 
 export default App;
