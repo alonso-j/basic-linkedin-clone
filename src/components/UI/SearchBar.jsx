@@ -1,6 +1,8 @@
+import AccountsContext from "../../store/AccountsContext";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import { alpha, styled } from "@mui/material/styles";
+import { useContext } from "react";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -43,13 +45,19 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const SearchBar = (props) => {
+  const ctxAccounts = useContext(AccountsContext);
+
   return (
     <>
       <Search>
         <SearchIconWrapper>
           <SearchIcon />
         </SearchIconWrapper>
-        <StyledInputBase {...props} inputProps={{ "aria-label": "search" }} />
+        <StyledInputBase
+          {...props}
+          inputProps={{ "aria-label": "search" }}
+          onChange={(ev) => ctxAccounts.queryAccounts(ev.target.value)}
+        />
       </Search>
     </>
   );
