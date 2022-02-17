@@ -5,13 +5,16 @@ import "./App.css";
 
 import Layout from "./components/Layout/Layout";
 import List from "./components/List/List";
+import BodyBox from "./components/UI/Box/BodyBox";
 
 const App = () => {
   const ctxAccounts = useContext(AccountsContext);
 
   return (
     <Layout>
-      <List results={ctxAccounts.accounts} />
+      <BodyBox>
+        <List results={ctxAccounts.accounts} />
+      </BodyBox>
     </Layout>
   );
 };

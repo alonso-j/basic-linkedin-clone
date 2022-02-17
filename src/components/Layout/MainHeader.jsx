@@ -1,50 +1,59 @@
-import * as React from "react";
-import MailIcon from "@mui/icons-material/Mail";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+import HomeIcon from "@mui/icons-material/Home";
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
+import WorkIcon from "@mui/icons-material/Work";
+import { Box } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Badge from "@mui/material/Badge";
-import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Toolbar from "@mui/material/Toolbar";
+import * as React from "react";
+import BodyBox from "../UI/Box/BodyBox";
 import SearchBar from "../UI/SearchBar";
 
 const MainHeader = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, marginBottom: "2rem", borderBottom: "" }}>
       <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            In
-          </IconButton>
-          <SearchBar placeholder="Search" />
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+        <BodyBox>
+          <Toolbar>
             <IconButton
               size="large"
-              aria-label="show 4 new mails"
+              edge="start"
               color="inherit"
+              aria-label="open drawer"
             >
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
+              in
             </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-          </Box>
-        </Toolbar>
+            <SearchBar placeholder="Search" />
+            <Box sx={{ flexGrow: 1 }} />
+            <Box sx={{ display: { xs: "none", md: "flex" } }}>
+              <IconButton size="large" aria-label="show mails" color="inherit">
+                <Badge badgeContent={"•"} color="error">
+                  <HomeIcon />
+                </Badge>
+              </IconButton>
+              <IconButton
+                size="large"
+                aria-label="show network"
+                color="inherit"
+              >
+                <Badge badgeContent={"•"} color="error" invisible={true}>
+                  <PeopleAltIcon />
+                </Badge>
+              </IconButton>
+              <IconButton
+                size="large"
+                aria-label="show network"
+                color="inherit"
+              >
+                <Badge badgeContent={"•"} color="error" invisible={true}>
+                  <WorkIcon />
+                </Badge>
+              </IconButton>
+            </Box>
+          </Toolbar>
+        </BodyBox>
+        <Toolbar sx={{ borderTop: "1px solid #ccc" }}></Toolbar>
       </AppBar>
     </Box>
   );
