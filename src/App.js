@@ -1,11 +1,22 @@
+import { useContext } from "react";
+import AccountsContext from "./store/AccountsContext";
+
 import "./App.css";
 
-function App() {
+import Layout from "./components/Layout/Layout";
+import List from "./components/List/List";
+import BodyBox from "./components/UI/Box/BodyBox";
+
+const App = () => {
+  const ctxAccounts = useContext(AccountsContext);
+
   return (
-    <div className="App">
-      <header className="App-header">Welcome</header>
-    </div>
+    <Layout>
+      <BodyBox>
+        <List results={ctxAccounts.accounts} />
+      </BodyBox>
+    </Layout>
   );
-}
+};
 
 export default App;

@@ -2,10 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import { AccountsContextProvider } from "./store/AccountsContext";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <AccountsContextProvider>
     <App />
-  </React.StrictMode>,
+  </AccountsContextProvider>,
   document.getElementById("root")
 );
