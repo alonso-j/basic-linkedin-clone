@@ -27,6 +27,13 @@ const StyledConnectButton = styled(Button)(() => ({
   },
 }));
 
+const StyledItemTitle = styled(Typography)(() => ({
+  "&:hover": {
+    textDecoration: "underline",
+    cursor: "pointer",
+  },
+}));
+
 function ListItem({ result }) {
   return (
     <Box sx={{ minWidth: 275 }}>
@@ -51,9 +58,9 @@ function ListItem({ result }) {
           sx={{ borderBottom: "1px solid #ccc", paddingBottom: "1rem" }}
         >
           <Box sx={{ flexDirection: "row" }}>
-            <Typography variant="h5" component="span">
+            <StyledItemTitle variant="h5" component="span">
               {result.name} {bull}
-            </Typography>
+            </StyledItemTitle>
             <Typography color="text.secondary" component="span">
               {" "}
               2nd

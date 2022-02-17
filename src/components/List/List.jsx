@@ -6,7 +6,7 @@ const List = ({ results }) => {
   return (
     <Card sx={{ minWidth: 275, borderRadius: "10px" }}>
       <CardContent sx={{ padding: "1rem 0 1rem 1rem" }}>
-        <Box sx={{ paddingLeft: "1rem" }}>
+        <Box sx={{ pl: "1rem", pt: "0.5rem" }}>
           <Typography variant="h4" fontWeight="500">
             People
           </Typography>
