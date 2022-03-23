@@ -3,13 +3,12 @@ import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import WorkIcon from "@mui/icons-material/Work";
 import { Avatar } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
-
 import { styled } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import * as React from "react";
-import SearchBar from "../UI/SearchBar";
 import HorizontalBox from "../UI/HorizontalBox";
 import MyNavIconButton from "../UI/MyNavIconButton";
+import SearchBar from "../UI/SearchBar";
 
 const StyledAppBar = styled(AppBar)(() => ({
   position: "static",
