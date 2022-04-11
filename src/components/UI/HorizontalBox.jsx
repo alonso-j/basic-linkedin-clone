@@ -8,8 +8,8 @@ const StyledBox = styled(Box)(() => ({
   alignItems: "center",
 }));
 
-const HorizontalBox = ({ children }) => {
-  return <StyledBox>{children}</StyledBox>;
+const HorizontalBox = ({ children, ...props }) => {
+  return <StyledBox {...props}>{children}</StyledBox>;
 };
 
 export default HorizontalBox;

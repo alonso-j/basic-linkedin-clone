@@ -4,6 +4,7 @@ import { styled } from "@mui/material/styles";
 import Header from "./components/Layout/Header";
 import Main from "./components/Layout/Main";
 import Home from "./components/Pages/Home/Home";
+import Search from "./components/Pages/Search/Search";
 
 const StyledDiv = styled("div")(() => ({
   display: "flex",
@@ -19,6 +20,7 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/home" element={<Home />} />
+          <Route exact path="/search" element={<Search />} />
         </Routes>
       </Main>
     </StyledDiv>

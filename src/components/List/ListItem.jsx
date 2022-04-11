@@ -1,10 +1,12 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
+import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { alpha, styled } from "@mui/material/styles";
-import { Grid } from "@mui/material";
-import CircleTwoToneIcon from "@mui/icons-material/CircleTwoTone";
+import { styled } from "@mui/material/styles";
+import Grid from "@mui/material/Grid";
+import Link from "@mui/material/Link";
+import SupervisorAccountIcon from "@mui/icons-material/SupervisorAccount";
 
 const bull = (
   <Box
@@ -15,87 +17,86 @@ const bull = (
   </Box>
 );
 
-const StyledConnectButton = styled(Button)(() => ({
-  textTransform: "none",
-  fontWeight: "bold",
-  size: "medium",
+const StyledButton = styled(Button)(() => ({
   borderRadius: "1.6rem",
-  border: "0.1rem solid",
-  "&:hover": {
-    border: "0.2rem solid",
-    backgroundColor: alpha("#0A66C2", 0.2),
-  },
+  textTransform: "none",
+  marginTop: "12px",
+  marginBottom: "12px",
+  fontWeight: "900",
 }));
 
-const StyledItemTitle = styled(Typography)(() => ({
-  "&:hover": {
-    textDecoration: "underline",
-    cursor: "pointer",
-  },
-}));
+const getInitials = (str) => {
+  return str
+    .split(" ")
+    .map((word) => word[0])
+    .join("");
+};
 
 function ListItem({ result }) {
   return (
-    <Box sx={{ minWidth: 275 }}>
-      <Grid container sx={{ padding: "1rem 0 1rem 1rem" }}>
+    <>
+      <Grid container sx={{ width: "100%" }}>
         <Grid
           item
           xs={1}
-          sx={{
-            display: "flex",
-            alignItems: "flex-start",
-            justifyContent: "center",
-          }}
+          sx={{ margin: "16px 12px 12px 16px", pt: "0 !important" }}
         >
-          <CircleTwoToneIcon
-            color="primary"
-            sx={{ width: "80%", height: "80%" }}
-          />
+          <Avatar>{getInitials(result.name)}</Avatar>
         </Grid>
         <Grid
           item
-          xs={9}
-          sx={{ borderBottom: "1px solid #ccc", paddingBottom: "1rem" }}
+          xs={8}
+          sx={{
+            pt: "12px",
+            pb: "12px",
+            borderBottom: "1px solid #e0e0e0",
+            letterSpacing: "0.2px",
+          }}
         >
-          <Box sx={{ flexDirection: "row" }}>
-            <StyledItemTitle variant="h5" component="span">
-              {result.name} {bull}
-            </StyledItemTitle>
-            <Typography color="text.secondary" component="span">
-              {" "}
+          <Box style={{ display: "flex", flexDirection: "row" }}>
+            <Link
+              style={{ fontWeight: "600", color: "inherit" }}
+              href="#"
+              underline="hover"
+            >
+              {result.name}
+              {bull}
+            </Link>
+            <p
+              style={{ fontWeight: "400", fontSize: "14px", color: "#666666" }}
+            >
               2nd
-            </Typography>
+            </p>
           </Box>
-          <Typography typography={{ fontWeight: "medium" }}>
-            {result.job_title}
-          </Typography>
-          <Typography color="text.secondary">{result.country}</Typography>
-          <Typography variant="body2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Praesentium, obcaecati?
-          </Typography>
+          <p style={{ fontWeight: "400", fontSize: "14px" }}>
+            {result.job_title} at {result.company}
+          </p>
+          <p style={{ fontWeight: "300", fontSize: "14px", color: "#666666" }}>
+            {result.country}
+          </p>
+          <Box style={{ display: "flex", flexDirection: "row" }}>
+            <SupervisorAccountIcon
+              sx={{ color: "rgba(63, 63, 63, 0.822)", marginRight: "3px" }}
+            />
+            <p
+              style={{
+                fontWeight: "400",
+                fontSize: "12px",
+                color: "rgba(63, 63, 63, 0.822)",
+              }}
+            >
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum,
+              distinctio.
+            </p>
+          </Box>
         </Grid>
-        <Grid
-          item
-          xs={2}
-          sx={{
-            display: "grid",
-            borderBottom: "1px solid #ccc",
-            alignItems: "flex-start",
-            justifyContent: "flex-end",
-            paddingRight: "1.5rem",
-          }}
-        >
-          <StyledConnectButton
-            variant="outlined"
-            size="medium"
-            sx={{ borderRadius: "1.6rem" }}
-          >
-            Connect
-          </StyledConnectButton>
+        <Grid item xs={2} sx={{ borderBottom: "1px solid #e0e0e0" }}>
+          <StyledButton variant="outlined">
+            <Typography variant="body2">Connect</Typography>
+          </StyledButton>
         </Grid>
       </Grid>
-    </Box>
+    </>
   );
 }
 
